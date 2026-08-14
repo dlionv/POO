@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.aula12082026;
 
-/**
- *
- * @author alunolab11
- */
 public class Conta {
     private int agencia, numero;
     private double saldo;
@@ -32,56 +24,43 @@ public class Conta {
         return saldo;
     }
 
-       
-    
-    Conta(){
-        
+    public Conta() {
     }
-    
-    Conta(int agencia, int numero) {
+
+    public Conta(int agencia, int numero) {
         this.agencia = agencia;
         this.numero = numero;
-        
     }
-    
-    Conta(int agencia, int numero, double saldo){
+
+    public Conta(int agencia, int numero, double saldo) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
     }
-    
-    void creditar(double valor){
-        if(valor > 0){
+
+    public void creditar(double valor) {
+        if (valor > 0) {
             saldo = saldo + valor;
-            //System.out.println("Crédito Realizado!");
-        }else{
+        } else {
             System.out.println("Valor Inválido!");
         }
     }
-    
-    boolean debitar(double valor){
-        if(valor > 0 && valor <= saldo){
-        saldo = saldo - valor;    
-        //System.out.println("Débito Realizado!");
-        return true;
-        }else{
+
+    public boolean debitar(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo = saldo - valor;
+            return true;
+        } else {
             System.out.println("Saldo Insuficiente!");
-        return false;    
+            return false;
         }
     }
-    
-    void transferir(double valor, Conta destino){
-        if(debitar(valor)){
+
+    public void transferir(double valor, Conta destino) {
+        if (debitar(valor)) {
             destino.creditar(valor);
-            //System.out.println("Transferência Realizada!");
-        }else{
+        } else {
             System.out.println("Transferência Negada!");
-                    
-                    
         }
-    
     }
-    
-    
-    
 }
